@@ -1,12 +1,8 @@
-customer_country
+import pandas as pd
+import numpy as np
 
-import csv
+df = pd.read_csv("customers.csv",usecols=["FirstName", "LastName", "Country"])
+#print("Names and countries are:" )
+#print(df)
 
-with open("customer.csv","r") as file1:
-    reader = csv.reader(file1)
-
-    with open("outputfile.csv","w", newline="") as file2:
-        writer = csv.writer(file2)
-
-        for row in reader:
-            writer.writerow(row)
+df.to_csv("customer_country.csv", index=False)
