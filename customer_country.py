@@ -12,9 +12,12 @@ for line in file:
 file.close()
 
 file = open("customer_country.csv", "w")
+total_employees = len(data)
+file.write(f"Total Employees: {total_employees}\n")
 file.write("FirstName,LastName,Country\n")
 for item in data:
     file.write(f"{item[0]},{item[1]},{item[2]}\n")
 
+
 file.close()
-print("hello")
+
