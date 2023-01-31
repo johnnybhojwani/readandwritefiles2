@@ -1,8 +1,19 @@
-import pandas as pd
-import numpy as np
+file = open("customers.csv", "r")
+header = file.readline().strip().split(",")
+first_name_index = header.index("FirstName")
+last_name_index = header.index("LastName")
+country_index = header.index("Country")
 
-df = pd.read_csv("customers.csv",usecols=["FirstName", "LastName", "Country"])
-#print("Names and countries are:" )
-#print(df)
+data = []
+for line in file:
+    values = line.strip().split(",")
+    data.append([values[first_name_index], values[last_name_index], values[country_index]])
 
-df.to_csv("customer_country.csv", index=False)
+file.close()
+
+file = open("customer_country.csv", "w")
+file.write("FirstName,LastName,Country\n")
+for item in data:
+    file.write(f"{item[0]},{item[1]},{item[2]}\n")
+
+file.close()
