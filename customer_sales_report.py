@@ -9,9 +9,10 @@ for line in reader:
     for key in id_dict:
         if key == line[0]:
             id_dict[key] += float(line[3])
-
+file.close()
 with open('salesreport.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["Customer ID", "Total"])
     for key, value in id_dict.items():
         writer.writerow([key, value])
+csvfile.close()

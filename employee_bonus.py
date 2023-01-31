@@ -1,12 +1,14 @@
 import csv
 
-with open("EmployeePay.csv","r") as printfile:
-    reader = csv.reader(printfile)
-    #next(reader)
-    for row in reader:
-        print(row)
+with open("customers.csv", "r") as file:
+    reader = csv.reader(file)
+    header = next(reader)
+    first_name_index = header.index("FirstName")
+    last_name_index = header.index("LastName")
+    country_index = header.index("Country")
 
-file = open("EmployeePay.csv","r")
-reader = csv.reader(file)
-print(file)
-printfile.close()
+    data = []
+    for values in reader:
+        data.append([values[first_name_index], values[last_name_index], values[country_index]])
+
+print(data)
