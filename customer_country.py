@@ -17,3 +17,4 @@ for item in data:
     file.write(f"{item[0]},{item[1]},{item[2]}\n")
 
 file.close()
+print("hello")
